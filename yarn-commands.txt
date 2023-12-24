@@ -1,0 +1,3 @@
+> yarn payload generate:graphQLSchema
+
+> yarn generate:types
