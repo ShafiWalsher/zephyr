@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import classes from './index.module.scss'
+import Image from 'next/image'
+import { Button } from '../Button'
 
 const Promotion = () => {
   const [time, setTime] = useState({
@@ -11,8 +13,11 @@ const Promotion = () => {
     seconds: 0,
   })
 
-  const targetDate = new Date()
-  targetDate.setDate(targetDate.getDate() + 3)
+  const [targetDate, setTargetDate] = useState(() => {
+    const initialTargetDate = new Date()
+    initialTargetDate.setDate(initialTargetDate.getDate() + 7)
+    return initialTargetDate
+  })
 
   useEffect(() => {
     const timerInterval = setInterval(() => {
@@ -28,14 +33,16 @@ const Promotion = () => {
 
       if (timeDifference === 0) {
         clearInterval(timerInterval)
-        // You can add code here to handle what happens when the target date is reached.
+        const newTargetDate = new Date()
+        newTargetDate.setDate(newTargetDate.getDate() + 3)
+        setTargetDate(newTargetDate)
       }
     }, 1000)
 
     return () => {
       clearInterval(timerInterval) // Cleanup the interval when the component unmounts.
     }
-  }, [])
+  }, [targetDate])
 
   return (
     <section className={classes.promotion}>
@@ -54,6 +61,23 @@ const Promotion = () => {
           <StatBox label="Minutes" value={time.minutes} />
           <StatBox label="Seconds" value={time.seconds} />
         </ul>
+        <Button
+          type="button"
+          appearance="primary"
+          label="View Product&nbsp;&nbsp;&nbsp;&nbsp;🡪"
+          className={classes.dealBtn}
+          el="link"
+          href={`/products`}
+        />
+      </div>
+      <div className={classes.mediaWrappper}>
+        <Image
+          src="/assets/images/image-4.png"
+          alt="promotion-image"
+          height={650}
+          width={650}
+          className={classes.media}
+        />
       </div>
     </section>
   )

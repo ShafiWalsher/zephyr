@@ -22,12 +22,15 @@
   gap: 30px;
 }
 
-.image {
-  min-height: 500px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+.mediaWrappper {
+  display: flex;
+  justify-content: end;
 }
+
+.media{
+  border-radius: 10px;
+}
+
 
 .dealBtn {
   width: fit-content;

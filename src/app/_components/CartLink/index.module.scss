@@ -4,6 +4,16 @@
   align-items: center;
 }
 
-.quantity {
-  margin-left: 2px;
+.cartIconContainer {
+  position: relative;
+}
+
+.redDot {
+  position: absolute;
+  top: 0px; /* Adjust the positioning as needed */
+  right: 0px; /* Adjust the positioning as needed */
+  background-color: rgb(255, 44, 44);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
 }

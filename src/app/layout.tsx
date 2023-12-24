@@ -26,10 +26,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <title>Zephyr - Ecommerce Solution</title>
       </head>
       <body className={notoSans.variable}>
         <Providers>
-          <AdminBar />
+          {/* <AdminBar /> */}
           {/* @ts-expect-error */}
           <Header />
           <main className="main">{children}</main>
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://payloadcms.com'),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '',
   },
   openGraph: mergeOpenGraph(),
 }
